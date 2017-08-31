@@ -18,14 +18,16 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    fileprivate var tweets = [Array<Twitter.Tweet>]()
+//    fileprivate var tweets = [Array<Twitter.Tweet>]()
+    var tweets = [Array<Twitter.Tweet>]()
+
     var searchText: String? {
         didSet {
             searchForTweets(with: searchText!)
             title = searchText
         }
     }
-    func insertTweets(_ newTweets: [Tweet]) {
+    func insertTweets(_ newTweets: [Twitter.Tweet]) {
         self.tweets.insert(newTweets, at: 0)
         self.tableView.insertSections([0], with: .fade)
     }
@@ -35,7 +37,7 @@ class SearchTableViewController: UITableViewController {
             let request = Twitter.Request(search: criteria, count: 100)
             request.fetchTweets {[weak self] newTweets in
                 DispatchQueue.main.async {
-                    insertTweets(newTweets)
+                    self?.insertTweets(newTweets)
                 }
             }
         }
@@ -44,21 +46,12 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // searchText = "#psp"
-        
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -78,7 +71,6 @@ class SearchTableViewController: UITableViewController {
         if let tweetCell = cell as? TweetTableViewCell {
             tweetCell.tweet = tweet
         }
-
         return cell
     }
     
@@ -91,7 +83,6 @@ class SearchTableViewController: UITableViewController {
                 destinationViewController.tweet = tweets[indexPath!.section][indexPath!.row]
             }
         }
-            
     }
 
     
