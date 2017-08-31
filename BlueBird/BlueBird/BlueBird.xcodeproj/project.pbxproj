@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BE511291F4F8C8E00664353 /* BlueBirdModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BE511271F4F8C8E00664353 /* BlueBirdModel.xcdatamodeld */; };
+		5BE5112B1F4F90D200664353 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5112A1F4F90D200664353 /* Tweet.swift */; };
+		5BE5112D1F4F911000664353 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5112C1F4F911000664353 /* TwitterUser.swift */; };
+		5BE5112F1F4F945D00664353 /* TweeterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5112E1F4F945D00664353 /* TweeterTableViewController.swift */; };
+		5BE511311F4F9E5500664353 /* PersistentSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE511301F4F9E5500664353 /* PersistentSearchTableViewController.swift */; };
+		803CF6671F3F4E3200713D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF6661F3F4E3200713D2D /* AppDelegate.swift */; };
+		803CF66C1F3F4E3200713D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 803CF66A1F3F4E3200713D2D /* Main.storyboard */; };
+		803CF66E1F3F4E3200713D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803CF66D1F3F4E3200713D2D /* Assets.xcassets */; };
+		803CF6711F3F4E3200713D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 803CF66F1F3F4E3200713D2D /* LaunchScreen.storyboard */; };
+		803CF6791F3F508F00713D2D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF6781F3F508F00713D2D /* SearchTableViewController.swift */; };
+		803CF67B1F3F730600713D2D /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF67A1F3F730600713D2D /* TweetTableViewCell.swift */; };
+		803CF67D1F3F7ADB00713D2D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803CF67C1F3F7ADB00713D2D /* Twitter.framework */; };
+		803CF67E1F3F7ADB00713D2D /* Twitter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 803CF67C1F3F7ADB00713D2D /* Twitter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		80C8D5531F4536C000D9F07E /* TweetDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C8D5521F4536C000D9F07E /* TweetDetailTableViewController.swift */; };
+		80C8D5551F4537DB00D9F07E /* MentionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C8D5541F4537DB00D9F07E /* MentionTableViewCell.swift */; };
+		80C8D5571F4538C100D9F07E /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C8D5561F4538C100D9F07E /* ImageTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		803CF67F1F3F7ADC00713D2D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				803CF67E1F3F7ADB00713D2D /* Twitter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5BE511281F4F8C8E00664353 /* BlueBirdModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlueBirdModel.xcdatamodel; sourceTree = "<group>"; };
+		5BE5112A1F4F90D200664353 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		5BE5112C1F4F911000664353 /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		5BE5112E1F4F945D00664353 /* TweeterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweeterTableViewController.swift; sourceTree = "<group>"; };
+		5BE511301F4F9E5500664353 /* PersistentSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentSearchTableViewController.swift; sourceTree = "<group>"; };
+		803CF6631F3F4E3200713D2D /* BlueBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		803CF6661F3F4E3200713D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		803CF66B1F3F4E3200713D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		803CF66D1F3F4E3200713D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		803CF6701F3F4E3200713D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		803CF6721F3F4E3200713D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		803CF6781F3F508F00713D2D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		803CF67A1F3F730600713D2D /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		803CF67C1F3F7ADB00713D2D /* Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C8D5521F4536C000D9F07E /* TweetDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailTableViewController.swift; sourceTree = "<group>"; };
+		80C8D5541F4537DB00D9F07E /* MentionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionTableViewCell.swift; sourceTree = "<group>"; };
+		80C8D5561F4538C100D9F07E /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		803CF6601F3F4E3200713D2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				803CF67D1F3F7ADB00713D2D /* Twitter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		803CF65A1F3F4E3200713D2D = {
+			isa = PBXGroup;
+			children = (
+				803CF67C1F3F7ADB00713D2D /* Twitter.framework */,
+				803CF6651F3F4E3200713D2D /* BlueBird */,
+				803CF6641F3F4E3200713D2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		803CF6641F3F4E3200713D2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				803CF6631F3F4E3200713D2D /* BlueBird.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		803CF6651F3F4E3200713D2D /* BlueBird */ = {
+			isa = PBXGroup;
+			children = (
+				803CF6661F3F4E3200713D2D /* AppDelegate.swift */,
+				803CF66A1F3F4E3200713D2D /* Main.storyboard */,
+				803CF66D1F3F4E3200713D2D /* Assets.xcassets */,
+				803CF66F1F3F4E3200713D2D /* LaunchScreen.storyboard */,
+				803CF6721F3F4E3200713D2D /* Info.plist */,
+				803CF6781F3F508F00713D2D /* SearchTableViewController.swift */,
+				803CF67A1F3F730600713D2D /* TweetTableViewCell.swift */,
+				80C8D5521F4536C000D9F07E /* TweetDetailTableViewController.swift */,
+				80C8D5541F4537DB00D9F07E /* MentionTableViewCell.swift */,
+				80C8D5561F4538C100D9F07E /* ImageTableViewCell.swift */,
+				5BE511271F4F8C8E00664353 /* BlueBirdModel.xcdatamodeld */,
+				5BE5112A1F4F90D200664353 /* Tweet.swift */,
+				5BE5112C1F4F911000664353 /* TwitterUser.swift */,
+				5BE5112E1F4F945D00664353 /* TweeterTableViewController.swift */,
+				5BE511301F4F9E5500664353 /* PersistentSearchTableViewController.swift */,
+			);
+			path = BlueBird;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		803CF6621F3F4E3200713D2D /* BlueBird */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 803CF6751F3F4E3200713D2D /* Build configuration list for PBXNativeTarget "BlueBird" */;
+			buildPhases = (
+				803CF65F1F3F4E3200713D2D /* Sources */,
+				803CF6601F3F4E3200713D2D /* Frameworks */,
+				803CF6611F3F4E3200713D2D /* Resources */,
+				803CF67F1F3F7ADC00713D2D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueBird;
+			productName = BlueBird;
+			productReference = 803CF6631F3F4E3200713D2D /* BlueBird.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		803CF65B1F3F4E3200713D2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Cleofas Pereira";
+				TargetAttributes = {
+					803CF6621F3F4E3200713D2D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 803CF65E1F3F4E3200713D2D /* Build configuration list for PBXProject "BlueBird" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 803CF65A1F3F4E3200713D2D;
+			productRefGroup = 803CF6641F3F4E3200713D2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				803CF6621F3F4E3200713D2D /* BlueBird */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		803CF6611F3F4E3200713D2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				803CF6711F3F4E3200713D2D /* LaunchScreen.storyboard in Resources */,
+				803CF66E1F3F4E3200713D2D /* Assets.xcassets in Resources */,
+				803CF66C1F3F4E3200713D2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		803CF65F1F3F4E3200713D2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BE5112F1F4F945D00664353 /* TweeterTableViewController.swift in Sources */,
+				80C8D5551F4537DB00D9F07E /* MentionTableViewCell.swift in Sources */,
+				5BE511311F4F9E5500664353 /* PersistentSearchTableViewController.swift in Sources */,
+				803CF6671F3F4E3200713D2D /* AppDelegate.swift in Sources */,
+				803CF6791F3F508F00713D2D /* SearchTableViewController.swift in Sources */,
+				5BE511291F4F8C8E00664353 /* BlueBirdModel.xcdatamodeld in Sources */,
+				80C8D5571F4538C100D9F07E /* ImageTableViewCell.swift in Sources */,
+				80C8D5531F4536C000D9F07E /* TweetDetailTableViewController.swift in Sources */,
+				803CF67B1F3F730600713D2D /* TweetTableViewCell.swift in Sources */,
+				5BE5112B1F4F90D200664353 /* Tweet.swift in Sources */,
+				5BE5112D1F4F911000664353 /* TwitterUser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		803CF66A1F3F4E3200713D2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				803CF66B1F3F4E3200713D2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		803CF66F1F3F4E3200713D2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				803CF6701F3F4E3200713D2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		803CF6731F3F4E3200713D2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		803CF6741F3F4E3200713D2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		803CF6761F3F4E3200713D2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlueBird/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.BlueBird;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		803CF6771F3F4E3200713D2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BlueBird/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.BlueBird;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		803CF65E1F3F4E3200713D2D /* Build configuration list for PBXProject "BlueBird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				803CF6731F3F4E3200713D2D /* Debug */,
+				803CF6741F3F4E3200713D2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		803CF6751F3F4E3200713D2D /* Build configuration list for PBXNativeTarget "BlueBird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				803CF6761F3F4E3200713D2D /* Debug */,
+				803CF6771F3F4E3200713D2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5BE511271F4F8C8E00664353 /* BlueBirdModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5BE511281F4F8C8E00664353 /* BlueBirdModel.xcdatamodel */,
+			);
+			currentVersion = 5BE511281F4F8C8E00664353 /* BlueBirdModel.xcdatamodel */;
+			path = BlueBirdModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 803CF65B1F3F4E3200713D2D /* Project object */;
+}
