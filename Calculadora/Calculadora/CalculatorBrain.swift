@@ -30,6 +30,8 @@ struct CalculatorBrain {
         "tan": Operation.unary(tan),
         "log": Operation.unary(log10),
         "±": Operation.unary({ -$0 }),
+        "n!": Operation.unary(fatorial),
+        "%": Operation.unary({$0/100}),
         "mod": Operation.binary({$0.truncatingRemainder(dividingBy:$1)}),
         "xˆy": Operation.binary(pow),
         "/": Operation.binary({ $0 / $1 }),
@@ -107,6 +109,8 @@ struct CalculatorBrain {
         accumulator = nil;
         pbo = nil
     }
+    
+    
 }
 
 private func fatorial(_ n: Double) -> Double {
