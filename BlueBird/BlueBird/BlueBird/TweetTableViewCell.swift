@@ -10,10 +10,11 @@ import UIKit
 import Twitter
 
 class TweetTableViewCell: UITableViewCell {
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var profileName: UILabel!
-    @IBOutlet weak var tweetTitle: UILabel!
-    @IBOutlet weak var tweetBody: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userScreenName: UILabel!
+    @IBOutlet weak var tweetElapsedTime: UILabel!
+    @IBOutlet weak var tweetText: UILabel!
     
     var tweet: Twitter.Tweet? {
         didSet {
@@ -24,15 +25,18 @@ class TweetTableViewCell: UITableViewCell {
     private var session = URLSession(configuration: .default)
     
     private func updateUI() {
-        tweetBody?.text = tweet?.text
-        tweetTitle?.text = tweet?.user.description
+        tweetText?.text = tweet?.text
+        userName?.text = tweet?.user.name
+        if let _ = tweet?.user.screenName {
+            userScreenName?.text = "@\(tweet!.user.screenName)"
+        }
         
-        profileImage?.image = nil
+        userImage?.image = nil
         if let profileImageURL = tweet?.user.profileImageURL {
             let task = session.dataTask(with: profileImageURL, completionHandler: {[unowned self](data: Data?, response: URLResponse?, error: Error?) in
                 if let imageData = data {
                     DispatchQueue.main.async {
-                        self.profileImage?.image = UIImage(data: imageData)
+                        self.userImage?.image = UIImage(data: imageData)
                     }
                 }
             })
@@ -46,9 +50,9 @@ class TweetTableViewCell: UITableViewCell {
             } else {
                 formatter.timeStyle = .short
             }
-            profileName?.text = formatter.string(from: createdAt)
+            tweetElapsedTime?.text = formatter.string(from: createdAt)
         } else {
-            profileName?.text = nil
+            tweetElapsedTime?.text = nil
         }
     }
     

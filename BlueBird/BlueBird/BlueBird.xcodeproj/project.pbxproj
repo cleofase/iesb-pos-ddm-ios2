@@ -143,6 +143,7 @@
 				TargetAttributes = {
 					803CF6621F3F4E3200713D2D = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VL8ZVKS45P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -316,9 +317,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VL8ZVKS45P;
 				INFOPLIST_FILE = BlueBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.BlueBird;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.iesb.BlueBird;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -328,9 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VL8ZVKS45P;
 				INFOPLIST_FILE = BlueBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.BlueBird;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.cleofase.iesb.BlueBird;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
