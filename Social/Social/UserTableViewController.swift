@@ -14,19 +14,9 @@ class UserTableViewController: UITableViewController {
     
     private var users: [User]?
     fileprivate var dataUsers = Data()
-    private let getUsersURI = "https://jsonplaceholder.typicode.com/users"
-    
-    @IBAction func updateFromRESTButton(_ sender: UIBarButtonItem) {
-        getUsersFromService()
-        tableView.reloadData()
-    }
-    
-    @IBAction func updateFromCoreDataButton(_ sender: UIBarButtonItem) {
-        getUsersFromDatabase()
-        tableView.reloadData()
-    }
     
     private func getUsersFromService() {
+        let getUsersURI = "https://jsonplaceholder.typicode.com/users"
         let urlSessionConfiguration = URLSessionConfiguration.default
         urlSessionConfiguration.allowsCellularAccess = true
         urlSessionConfiguration.networkServiceType = .default
@@ -47,6 +37,7 @@ class UserTableViewController: UITableViewController {
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             let dataTask = urlSession.dataTask(with: request)
+            dataUsers.removeAll()
             dataTask.resume()
         }
     }
@@ -79,7 +70,12 @@ class UserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUsersFromService()
+        title = "Usuários"
+        if Reachability.isInternetAvailable() {
+            getUsersFromService()
+        } else {
+            getUsersFromDatabase()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,8 +111,8 @@ extension UserTableViewController: URLSessionDataDelegate {
                 users = try decoder.decode([User].self, from: dataUsers)
                 DispatchQueue.main.async {[unowned self] in
                     self.tableView.reloadData()
+                    self.updateDatabase(with: self.users!)
                 }
-                updateDatabase(with: users!)
             } catch {
                 debugPrint(error)
             }
