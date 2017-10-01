@@ -11,9 +11,8 @@ import CoreData
 
 class UserTableViewController: UITableViewController {
     var container: NSPersistentContainer? = AppDelegate.persistentContainer
-    
-    private var users: [User]?
-    fileprivate var dataUsers = Data()
+    fileprivate var fetchedResultsController: NSFetchedResultsController<User>?
+    fileprivate var jsonDataUsers = Data()
     
     private func getUsersFromService() {
         let getUsersURI = "https://jsonplaceholder.typicode.com/users"
@@ -37,32 +36,28 @@ class UserTableViewController: UITableViewController {
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
             let dataTask = urlSession.dataTask(with: request)
-            dataUsers.removeAll()
+            jsonDataUsers.removeAll()
             dataTask.resume()
         }
     }
     
-    private func getUsersFromDatabase() {
-        var usersFromDatabase = [User]()
-        do {
-            if let context = container?.viewContext {
-                let usersDAO = try UserDAO.getAll(in: context)
-                for userDAOInfo in usersDAO {
-                    let user = User(id: Int(userDAOInfo.identifier), name: userDAOInfo.name ?? "", username: userDAOInfo.username ?? "")
-                    usersFromDatabase.append(user)
-                }
-                users = usersFromDatabase
-            }
-        } catch {
-            debugPrint(error)
+    private func updateUI() {
+        if let context = container?.viewContext {
+            let request: NSFetchRequest<User> = User.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
+            
+            fetchedResultsController = NSFetchedResultsController<User>(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController?.delegate = self
+            try? fetchedResultsController?.performFetch()
+            tableView.reloadData()
         }
-        
     }
     
-    fileprivate func updateDatabase(with users: [User]) {
+    
+    fileprivate func updateDatabase(with users: [JPHUser]) {
         container?.performBackgroundTask {context in
             for userInfo in users {
-                _ = try? UserDAO.findOrCreateUser(matching: userInfo, in: context)
+                _ = try? User.findOrCreate(matching: userInfo, in: context)
             }
             try? context.save()
         }
@@ -70,12 +65,13 @@ class UserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Usuários"
         if Reachability.isInternetAvailable() {
             getUsersFromService()
-        } else {
-            getUsersFromDatabase()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,17 +79,31 @@ class UserTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController?.sections?.count ?? 1
     }
-
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return fetchedResultsController?.sectionIndexTitles
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users?.count ?? 0
+        if let sections = fetchedResultsController?.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseUserCell", for: indexPath)
-        cell.textLabel?.text = users?[indexPath.row].name
-        cell.detailTextLabel?.text = users?[indexPath.row].username
+        if let user = fetchedResultsController?.object(at: indexPath) {
+            cell.textLabel?.text = user.name
+            cell.detailTextLabel?.text = user.username
+        }
         return cell
     }
 
@@ -101,17 +111,18 @@ class UserTableViewController: UITableViewController {
 
 extension UserTableViewController: URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        dataUsers.append(data)
+        jsonDataUsers.append(data)
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if error == nil {
             let decoder = JSONDecoder()
             do {
-                users = try decoder.decode([User].self, from: dataUsers)
+                let jphUsers = try decoder.decode([JPHUser].self, from: jsonDataUsers)
                 DispatchQueue.main.async {[unowned self] in
                     self.tableView.reloadData()
-                    self.updateDatabase(with: self.users!)
+                    self.updateDatabase(with: jphUsers)
+                    self.updateUI()
                 }
             } catch {
                 debugPrint(error)
@@ -119,6 +130,40 @@ extension UserTableViewController: URLSessionDataDelegate {
         } else {
             debugPrint(error!)
         }
-        
+    }
+}
+
+extension UserTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch  type {
+        case .insert:
+            tableView.insertSections([sectionIndex], with: .fade)
+        case .delete:
+            tableView.deleteSections([sectionIndex], with: .fade)
+        default:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 }

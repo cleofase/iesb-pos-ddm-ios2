@@ -15,7 +15,11 @@
 		803CF2DF1F78971A00EE2164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 803CF2DD1F78971A00EE2164 /* Main.storyboard */; };
 		803CF2E11F7897B300EE2164 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2E01F7897B300EE2164 /* UserTableViewController.swift */; };
 		803CF2E31F789A2D00EE2164 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2E21F789A2D00EE2164 /* User.swift */; };
-		803CF2E51F7B9EFB00EE2164 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2E41F7B9EFB00EE2164 /* UserDAO.swift */; };
+		809133B41F7FDA9E00FAE0D0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B31F7FDA9E00FAE0D0 /* Address.swift */; };
+		809133B61F7FDBB500FAE0D0 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B51F7FDBB500FAE0D0 /* Geo.swift */; };
+		809133B81F7FDBFA00FAE0D0 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B71F7FDBFA00FAE0D0 /* Company.swift */; };
+		809133BB1F7FE87C00FAE0D0 /* ServiceJPHModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */; };
+		80E1C83D1F8139CB0079F21A /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +33,11 @@
 		803CF2DE1F78971A00EE2164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		803CF2E01F7897B300EE2164 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		803CF2E21F789A2D00EE2164 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		803CF2E41F7B9EFB00EE2164 /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		809133B31F7FDA9E00FAE0D0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		809133B51F7FDBB500FAE0D0 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
+		809133B71F7FDBFA00FAE0D0 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceJPHModel.swift; sourceTree = "<group>"; };
+		80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +78,12 @@
 				803CF2DD1F78971A00EE2164 /* Main.storyboard */,
 				803CF2E01F7897B300EE2164 /* UserTableViewController.swift */,
 				803CF2E21F789A2D00EE2164 /* User.swift */,
-				803CF2E41F7B9EFB00EE2164 /* UserDAO.swift */,
 				801477EA1F7C847B00845003 /* Reachability.swift */,
+				809133B31F7FDA9E00FAE0D0 /* Address.swift */,
+				809133B51F7FDBB500FAE0D0 /* Geo.swift */,
+				809133B71F7FDBFA00FAE0D0 /* Company.swift */,
+				809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */,
+				80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -148,12 +160,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E1C83D1F8139CB0079F21A /* AddUserTableViewController.swift in Sources */,
 				803CF2E31F789A2D00EE2164 /* User.swift in Sources */,
 				803CF2CF1F78957B00EE2164 /* Social.xcdatamodeld in Sources */,
+				809133BB1F7FE87C00FAE0D0 /* ServiceJPHModel.swift in Sources */,
 				801477EB1F7C847B00845003 /* Reachability.swift in Sources */,
+				809133B81F7FDBFA00FAE0D0 /* Company.swift in Sources */,
 				803CF2E11F7897B300EE2164 /* UserTableViewController.swift in Sources */,
-				803CF2E51F7B9EFB00EE2164 /* UserDAO.swift in Sources */,
 				803CF2C71F78957A00EE2164 /* AppDelegate.swift in Sources */,
+				809133B41F7FDA9E00FAE0D0 /* Address.swift in Sources */,
+				809133B61F7FDBB500FAE0D0 /* Geo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,34 +5,41 @@
 //  Created by Cleofas Pereira on 24/09/17.
 //  Copyright © 2017 Cleofas Pereira. All rights reserved.
 //
-/*
- "id": 2,
- "name": "Ervin Howell",
- "username": "Antonette",
- "email": "Shanna@melissa.tv",
- "address": {
- "street": "Victor Plains",
- "suite": "Suite 879",
- "city": "Wisokyburgh",
- "zipcode": "90566-7771",
- "geo": {
- "lat": "-43.9509",
- "lng": "-34.4618"
- }
- },
- "phone": "010-692-6593 x09125",
- "website": "anastasia.net",
- "company": {
- "name": "Deckow-Crist",
- "catchPhrase": "Proactive didactic contingency",
- "bs": "synergize scalable supply-chains"
-*/
 
-import Foundation
+import UIKit
 import CoreData
 
-struct User: Codable {
-    var id: Int
-    var name: String
-    var username: String
+class User: NSManagedObject {
+    class func findOrCreate(matching userInfo: JPHUser, in context: NSManagedObjectContext) throws -> User {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", userInfo.name)
+        do {
+            let matches = try context.fetch(request)
+            if matches.count > 0 {
+                assert(matches.count == 1, "Inconsistência no banco de dados! Encontrado mais de um Usuário com o mesmo identificador.")
+                return matches[0]
+            }
+        } catch {
+            throw error
+        }
+        let user = User(context: context)
+        user.identifier = Int32(userInfo.id)
+        user.name = userInfo.name
+        user.username = userInfo.username
+        user.email = userInfo.email
+        user.phone = userInfo.phone
+        user.website = userInfo.website
+        do {
+            user.address = try Address.create(matching: userInfo.address, in: context)
+        } catch {
+            throw error
+        }
+        do {
+            user.company = try Company.create(matching: userInfo.company, in: context)
+        } catch {
+            throw error
+        }
+        return user
+    }
+    
 }
