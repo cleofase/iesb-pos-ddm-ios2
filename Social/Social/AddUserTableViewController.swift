@@ -11,38 +11,56 @@ import CoreData
 
 class AddUserTableViewController: UITableViewController {
     var container: NSPersistentContainer? = AppDelegate.persistentContainer
+    private let activityIndicator = CustomActivityIndicator()
 
     @IBAction func cancelAddUserButton(_ sender: UIBarButtonItem) {
         self.navigationController?.dismiss(animated: true)
     }
     
     @IBAction func confirmAddUserButton(_ sender: UIBarButtonItem) {
-        if formAddUserIsValid() {
-            addUserInDatabase(with: createJPHUserFromForm())
+        confirmAddUser()
+    }
+    
+    @IBOutlet weak var loginUserTextField: RequiredTextField!
+    @IBOutlet weak var nameUserTextField: RequiredTextField!
+    @IBOutlet weak var emailUserTextField: EmailTextField!
+    @IBOutlet weak var phoneUserTextField: RequiredTextField!
+    @IBOutlet weak var websiteUserTextField: URLTextField!
+    @IBOutlet weak var streetAddressUserTextField: RequiredTextField!
+    @IBOutlet weak var suiteAddressUserTextField: RequiredTextField!
+    @IBOutlet weak var cityAddressUserTextField: RequiredTextField!
+    @IBOutlet weak var zipcodeAddressUserTextField: RequiredTextField!
+    @IBOutlet weak var nameCompanyUserTextField: RequiredTextField!
+    @IBOutlet weak var catchPraseCompanyUserTextField: RequiredTextField!
+    @IBOutlet weak var bsCompanyUserTextField: RequiredTextField!
+   
+    fileprivate var textFields = [UITextField]()
+    
+    fileprivate func confirmAddUser() {
+        if performFormValidation() {
+            let jphUser = createJPHUserFromForm()
+            addUserInDatabase(with: jphUser)
+            addUserInService(with: jphUser)
             DispatchQueue.main.async {
                 self.navigationController?.dismiss(animated: true)
             }
         }
     }
     
-    @IBOutlet weak var loginUserTextField: UITextField!
-    @IBOutlet weak var nameUserTextField: UITextField!
-    @IBOutlet weak var emailUserTextField: UITextField!
-    @IBOutlet weak var phoneUserTextField: UITextField!
-    @IBOutlet weak var websiteUserTextField: UITextField!
-    @IBOutlet weak var streetAddressUserTextField: UITextField!
-    @IBOutlet weak var suiteAddressUserTextField: UITextField!
-    @IBOutlet weak var cityAddressUserTextField: UITextField!
-    @IBOutlet weak var zipcodeAddressUserTextField: UITextField!
-    @IBOutlet weak var nameCompanyUserTextField: UITextField!
-    @IBOutlet weak var catchPraseCompanyUserTextField: UITextField!
-    @IBOutlet weak var bsCompanyUserTextField: UITextField!
-    
-    
-    private func formAddUserIsValid() -> Bool {
-        if let loginUser = loginUserTextField.text, !loginUser.isEmpty {
+    private func performFormValidation() -> Bool {
+        var isValid: Bool = true
+
+        for textField in textFields {
+            let validatingTextField = textField as! Validable
+            if validatingTextField.isValid() {
+                textField.clearMark()
+            } else {
+                textField.markAsNotValid()
+                isValid = false
+            }
         }
-        return true
+        
+        return isValid
     }
     
     private func createJPHUserFromForm() -> JPHUser {
@@ -64,13 +82,117 @@ class AddUserTableViewController: UITableViewController {
         }
     }
 
+    private func addUserInService(with user: JPHUser) {
+        var jsonDataUser = Data()
+        let jsonEncoder = JSONEncoder()
+        do {
+            jsonDataUser.append(try jsonEncoder.encode(user))
+        } catch {
+            debugPrint(error)
+        }
+        
+        let userURI = "https://jsonplaceholder.typicode.com/users"
+        if let urlUserURI = URL(string: userURI) {
+            var request = URLRequest(url: urlUserURI)
+            activityIndicator.show(at: self.view)
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonDataUser
+            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
+                    // Atualizar id do User no CoreData
+                }
+                DispatchQueue.main.async {
+                    self.activityIndicator.hide()
+                    self.navigationController?.dismiss(animated: true)
+                }
+            }
+            dataTask.resume()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Novo Usuário"
+        
+        loginUserTextField.delegate = self
+        textFields.append(loginUserTextField)
+        
+        nameUserTextField.delegate = self
+        textFields.append(nameUserTextField)
+        
+        emailUserTextField.delegate = self
+        textFields.append(emailUserTextField)
+        
+        phoneUserTextField.delegate = self
+        textFields.append(phoneUserTextField)
+        
+        websiteUserTextField.delegate = self
+        textFields.append(websiteUserTextField)
+        
+        streetAddressUserTextField.delegate = self
+        textFields.append(streetAddressUserTextField)
+        
+        suiteAddressUserTextField.delegate = self
+        textFields.append(suiteAddressUserTextField)
+        
+        cityAddressUserTextField.delegate = self
+        textFields.append(cityAddressUserTextField)
+        
+        zipcodeAddressUserTextField.delegate = self
+        textFields.append(zipcodeAddressUserTextField)
+        
+        nameCompanyUserTextField.delegate = self
+        textFields.append(nameCompanyUserTextField)
+        
+        catchPraseCompanyUserTextField.delegate = self
+        textFields.append(catchPraseCompanyUserTextField)
+        
+        bsCompanyUserTextField.delegate = self
+        textFields.append(bsCompanyUserTextField)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
 
-
+extension AddUserTableViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.clearMark()
+//    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let validableTextField = textField as! Validable
+        if validableTextField.isValid() {
+            textField.clearMark()
+        } else {
+            textField.markAsNotValid()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .next {
+            if let currentIndex = textFields.index(of: textField) {
+                let nextTextField = textFields[currentIndex + 1]
+                nextTextField.becomeFirstResponder()
+            }
+        }
+        if textField.returnKeyType == .send {
+            confirmAddUser()
+        }
+        resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.placeholder == "Nome Completo" {
+            self.navigationItem.title = "\(textField.text ?? "")\(string)"
+        }
+        return true
+    }
+    
 }

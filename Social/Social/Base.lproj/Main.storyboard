@@ -81,7 +81,7 @@
         <scene sceneID="sDP-ss-U0c">
             <objects>
                 <tableViewController id="Yzf-SY-uQ9" customClass="AddUserTableViewController" customModule="Social" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="lMu-Eu-CbD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="lMu-Eu-CbD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -101,11 +101,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login do Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="URd-st-gor">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login do Usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="URd-st-gor" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="33.5" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -132,11 +132,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BAO-ju-0QE">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BAO-ju-0QE" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="33.5" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -163,11 +163,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9y-AT-GFz">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9y-AT-GFz" customClass="EmailTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="30.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -194,11 +194,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A70-kt-Kp2">
+                                                <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A70-kt-Kp2" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34.5" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -225,11 +225,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Site" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXk-Rw-t9s">
+                                                <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Site" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXk-Rw-t9s" customClass="URLTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34.5" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -260,11 +260,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Logradouro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRD-Bk-v3H">
+                                                <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Logradouro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRD-Bk-v3H" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -291,11 +291,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPu-ry-hSS">
+                                                <textField opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPu-ry-hSS" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -322,11 +322,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cidade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dA4-NZ-0Lo">
+                                                <textField opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cidade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dA4-NZ-0Lo" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34.5" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -353,11 +353,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CEP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8qO-O1-jbB">
+                                                <textField opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CEP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8qO-O1-jbB" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -388,11 +388,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Empresarial" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jq4-Ot-mw5">
+                                                <textField opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Empresarial" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jq4-Ot-mw5" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -420,11 +420,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Fantasia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyd-Q5-24j">
+                                                <textField opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Fantasia" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qyd-Q5-24j" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -452,11 +452,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Atividade Econômica" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lud-O2-0hg">
+                                                <textField opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Atividade Econômica" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lud-O2-0hg" customClass="RequiredTextField" customModule="Social" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="34" width="359" height="31"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -492,18 +492,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bsCompanyUserTextField" destination="lud-O2-0hg" id="eB9-Pk-YlN"/>
-                        <outlet property="catchPraseCompanyUserTextField" destination="Qyd-Q5-24j" id="PEn-gn-igQ"/>
-                        <outlet property="cityAddressUserTextField" destination="dA4-NZ-0Lo" id="q44-xR-IVp"/>
-                        <outlet property="emailUserTextField" destination="a9y-AT-GFz" id="spD-aq-1ee"/>
-                        <outlet property="loginUserTextField" destination="URd-st-gor" id="fAt-Fo-aPp"/>
-                        <outlet property="nameCompanyUserTextField" destination="Jq4-Ot-mw5" id="dtf-Zk-ZHK"/>
-                        <outlet property="nameUserTextField" destination="BAO-ju-0QE" id="fwf-ul-n21"/>
-                        <outlet property="phoneUserTextField" destination="A70-kt-Kp2" id="xTa-vf-kgF"/>
-                        <outlet property="streetAddressUserTextField" destination="aRD-Bk-v3H" id="eeF-HS-ths"/>
-                        <outlet property="suiteAddressUserTextField" destination="NPu-ry-hSS" id="5cT-YM-aWo"/>
-                        <outlet property="websiteUserTextField" destination="lXk-Rw-t9s" id="Zlu-s5-kkb"/>
-                        <outlet property="zipcodeAddressUserTextField" destination="8qO-O1-jbB" id="3cF-lf-Upd"/>
+                        <outlet property="bsCompanyUserTextField" destination="lud-O2-0hg" id="HYf-OU-Uex"/>
+                        <outlet property="catchPraseCompanyUserTextField" destination="Qyd-Q5-24j" id="7hS-vK-yAQ"/>
+                        <outlet property="cityAddressUserTextField" destination="dA4-NZ-0Lo" id="SCR-5w-k6s"/>
+                        <outlet property="emailUserTextField" destination="a9y-AT-GFz" id="RTu-5R-eCW"/>
+                        <outlet property="loginUserTextField" destination="URd-st-gor" id="dnm-aC-AC0"/>
+                        <outlet property="nameCompanyUserTextField" destination="Jq4-Ot-mw5" id="3Xl-qv-0ff"/>
+                        <outlet property="nameUserTextField" destination="BAO-ju-0QE" id="NTt-93-Zzj"/>
+                        <outlet property="phoneUserTextField" destination="A70-kt-Kp2" id="7bG-bn-LIf"/>
+                        <outlet property="streetAddressUserTextField" destination="aRD-Bk-v3H" id="3fC-uh-LNw"/>
+                        <outlet property="suiteAddressUserTextField" destination="NPu-ry-hSS" id="4ai-ar-r8y"/>
+                        <outlet property="websiteUserTextField" destination="lXk-Rw-t9s" id="W8K-Vv-s6q"/>
+                        <outlet property="zipcodeAddressUserTextField" destination="8qO-O1-jbB" id="Hvd-Ie-QJR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkM-A0-dab" userLabel="First Responder" sceneMemberID="firstResponder"/>

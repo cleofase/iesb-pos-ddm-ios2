@@ -11,6 +11,8 @@ import CoreData
 
 class UserTableViewController: UITableViewController {
     var container: NSPersistentContainer? = AppDelegate.persistentContainer
+
+    fileprivate let activityIndicator = CustomActivityIndicator()
     fileprivate var fetchedResultsController: NSFetchedResultsController<User>?
     fileprivate var jsonDataUsers = Data()
     
@@ -31,6 +33,7 @@ class UserTableViewController: UITableViewController {
         let urlSession = URLSession(configuration: urlSessionConfiguration, delegate: self, delegateQueue: operationQueue)
         
         if let urlGetUsersURI = URL(string: getUsersURI) {
+            activityIndicator.show(at: self.view)
             var request = URLRequest(url: urlGetUsersURI)
             request.timeoutInterval = 10
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -123,6 +126,7 @@ extension UserTableViewController: URLSessionDataDelegate {
                     self.tableView.reloadData()
                     self.updateDatabase(with: jphUsers)
                     self.updateUI()
+                    self.activityIndicator.hide()
                 }
             } catch {
                 debugPrint(error)

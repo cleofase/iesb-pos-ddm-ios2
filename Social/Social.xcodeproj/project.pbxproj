@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800326E01F85AA1C0002CFAE /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800326DF1F85AA1C0002CFAE /* Validable.swift */; };
+		800326E21F864E240002CFAE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800326E11F864E240002CFAE /* CustomActivityIndicator.swift */; };
 		801477EB1F7C847B00845003 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801477EA1F7C847B00845003 /* Reachability.swift */; };
+		803227B21F84A24100BA6D99 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803227B11F84A24100BA6D99 /* EmailTextField.swift */; };
+		803227B41F84A61B00BA6D99 /* URLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803227B31F84A61B00BA6D99 /* URLTextField.swift */; };
+		803227B81F84A92600BA6D99 /* RequiredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803227B71F84A92600BA6D99 /* RequiredTextField.swift */; };
+		803227BA1F84A99D00BA6D99 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803227B91F84A99D00BA6D99 /* UITextField.swift */; };
 		803CF2C71F78957A00EE2164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2C61F78957A00EE2164 /* AppDelegate.swift */; };
 		803CF2CF1F78957B00EE2164 /* Social.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2CD1F78957B00EE2164 /* Social.xcdatamodeld */; };
 		803CF2D11F78957B00EE2164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 803CF2D01F78957B00EE2164 /* Assets.xcassets */; };
@@ -23,7 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		800326DF1F85AA1C0002CFAE /* Validable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validable.swift; sourceTree = "<group>"; };
+		800326E11F864E240002CFAE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		801477EA1F7C847B00845003 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		803227B11F84A24100BA6D99 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
+		803227B31F84A61B00BA6D99 /* URLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTextField.swift; sourceTree = "<group>"; };
+		803227B71F84A92600BA6D99 /* RequiredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredTextField.swift; sourceTree = "<group>"; };
+		803227B91F84A99D00BA6D99 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		803CF2C31F78957A00EE2164 /* Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Social.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		803CF2C61F78957A00EE2164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		803CF2CE1F78957B00EE2164 /* Social.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Social.xcdatamodel; sourceTree = "<group>"; };
@@ -84,6 +96,12 @@
 				809133B71F7FDBFA00FAE0D0 /* Company.swift */,
 				809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */,
 				80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */,
+				803227B11F84A24100BA6D99 /* EmailTextField.swift */,
+				803227B31F84A61B00BA6D99 /* URLTextField.swift */,
+				803227B71F84A92600BA6D99 /* RequiredTextField.swift */,
+				803227B91F84A99D00BA6D99 /* UITextField.swift */,
+				800326DF1F85AA1C0002CFAE /* Validable.swift */,
+				800326E11F864E240002CFAE /* CustomActivityIndicator.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -161,14 +179,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E1C83D1F8139CB0079F21A /* AddUserTableViewController.swift in Sources */,
+				803227B81F84A92600BA6D99 /* RequiredTextField.swift in Sources */,
+				803227B41F84A61B00BA6D99 /* URLTextField.swift in Sources */,
 				803CF2E31F789A2D00EE2164 /* User.swift in Sources */,
+				803227B21F84A24100BA6D99 /* EmailTextField.swift in Sources */,
 				803CF2CF1F78957B00EE2164 /* Social.xcdatamodeld in Sources */,
 				809133BB1F7FE87C00FAE0D0 /* ServiceJPHModel.swift in Sources */,
 				801477EB1F7C847B00845003 /* Reachability.swift in Sources */,
 				809133B81F7FDBFA00FAE0D0 /* Company.swift in Sources */,
+				803227BA1F84A99D00BA6D99 /* UITextField.swift in Sources */,
 				803CF2E11F7897B300EE2164 /* UserTableViewController.swift in Sources */,
 				803CF2C71F78957A00EE2164 /* AppDelegate.swift in Sources */,
 				809133B41F7FDA9E00FAE0D0 /* Address.swift in Sources */,
+				800326E21F864E240002CFAE /* CustomActivityIndicator.swift in Sources */,
+				800326E01F85AA1C0002CFAE /* Validable.swift in Sources */,
 				809133B61F7FDBB500FAE0D0 /* Geo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
