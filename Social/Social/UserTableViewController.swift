@@ -33,7 +33,7 @@ class UserTableViewController: UITableViewController {
         let urlSession = URLSession(configuration: urlSessionConfiguration, delegate: self, delegateQueue: operationQueue)
         
         if let urlGetUsersURI = URL(string: getUsersURI) {
-            activityIndicator.show(at: self.view)
+            activityIndicator.show(at: UIApplication.shared.keyWindow!)
             var request = URLRequest(url: urlGetUsersURI)
             request.timeoutInterval = 10
             request.setValue("application/json", forHTTPHeaderField: "Accept")
