@@ -217,6 +217,7 @@ extension AddUserTableViewController: AddressFromMapDelegate {
                 self.suiteAddressUserTextField.text = placemark?.subThoroughfare
                 self.zipcodeAddressUserTextField.text = placemark?.postalCode
                 self.cityAddressUserTextField.text = placemark?.locality
+                _ = self.performFormValidation()
             }
         }
     }
