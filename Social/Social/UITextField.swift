@@ -10,10 +10,10 @@ import UIKit
 
 extension UITextField {
     func markAsNotValid() {
-        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 0.1)
+        self.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
     }
     
     func clearMark() {
-        self.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
     }
 }

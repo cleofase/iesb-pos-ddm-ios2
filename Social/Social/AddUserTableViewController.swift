@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class AddUserTableViewController: UITableViewController {
     var container: NSPersistentContainer? = AppDelegate.persistentContainer
+    var locationAddressUser: CLLocation?
+    
     private let activityIndicator = CustomActivityIndicator()
 
     @IBAction func cancelAddUserButton(_ sender: UIBarButtonItem) {
@@ -51,6 +54,7 @@ class AddUserTableViewController: UITableViewController {
         var isValid: Bool = true
 
         for textField in textFields {
+            textField.resignFirstResponder()
             let validatingTextField = textField as! Validable
             if validatingTextField.isValid() {
                 textField.clearMark()
@@ -65,7 +69,7 @@ class AddUserTableViewController: UITableViewController {
     
     private func createJPHUserFromForm() -> JPHUser {
         let company = JPHCompany(name: nameCompanyUserTextField.text ?? "", catchPhrase: catchPraseCompanyUserTextField.text ?? "", bs: bsCompanyUserTextField.text ?? "")
-        let geo = JPHGeo(lat: "-15.841853", lng: "-48.030709")
+        let geo = JPHGeo(lat: locationAddressUser?.coordinate.latitude.description ?? "", lng: locationAddressUser?.coordinate.longitude.description ?? "")
         let address = JPHAddress(street: streetAddressUserTextField.text ?? "", suite: suiteAddressUserTextField.text ?? "", city: cityAddressUserTextField.text ?? "", zipcode: zipcodeAddressUserTextField.text ?? "", geo: geo)
         let user = JPHUser(id: 0, name: nameUserTextField.text ?? "", username: loginUserTextField.text ?? "", email: emailUserTextField.text ?? "", address: address, phone: phoneUserTextField.text ?? "", website: websiteUserTextField.text ?? "", company: company)
         return user
@@ -161,9 +165,6 @@ class AddUserTableViewController: UITableViewController {
 }
 
 extension AddUserTableViewController: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        textField.clearMark()
-//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let validableTextField = textField as! Validable
@@ -195,4 +196,28 @@ extension AddUserTableViewController: UITextFieldDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addressFromMapSegue" {
+            if let destination = segue.destination as? AddressFromMapViewController {
+                destination.locationAddress = self.locationAddressUser
+                destination.delegate = self
+            }
+        }
+    }
+    
+}
+
+extension AddUserTableViewController: AddressFromMapDelegate {
+    func addressFromMap(didUpdateAddressFromMap location: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(location) {[unowned self](placemarks, error) in
+            if error == nil {
+                self.locationAddressUser = location
+                let placemark = placemarks?[0]
+                self.streetAddressUserTextField.text = placemark?.thoroughfare
+                self.suiteAddressUserTextField.text = placemark?.subThoroughfare
+                self.zipcodeAddressUserTextField.text = placemark?.postalCode
+                self.cityAddressUserTextField.text = placemark?.locality
+            }
+        }
+    }
 }
