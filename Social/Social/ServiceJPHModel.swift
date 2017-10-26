@@ -34,3 +34,15 @@ struct JPHCompany: Codable {
     var catchPhrase: String
     var bs: String
 }
+struct JPHAlbum: Codable {
+    var userId: Int
+    var id: Int
+    var title: String
+}
+struct JPHPhoto: Codable {
+    var albumId: Int
+    var id: Int
+    var title: String
+    var url: String
+    var thumbnailUrl: String
+}

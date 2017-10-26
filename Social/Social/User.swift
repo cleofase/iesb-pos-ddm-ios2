@@ -42,4 +42,19 @@ class User: NSManagedObject {
         return user
     }
     
+    class func find(matching userIdentifier: Int, in context: NSManagedObjectContext) throws -> User? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "identifier = %i", userIdentifier)
+        do {
+            let matches = try context.fetch(request)
+            if matches.count > 0 {
+                assert(matches.count == 1, "Inconsistência no banco de dados! Encontrado mais de um Usuário com o mesmo identificador.")
+                return matches[0]
+            }
+        } catch {
+            throw error
+        }
+        return nil
+    }
+    
 }

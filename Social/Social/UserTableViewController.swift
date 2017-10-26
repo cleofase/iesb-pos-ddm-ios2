@@ -109,6 +109,15 @@ class UserTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photoUserSegue" {
+            let destination = segue.destination as! PhotoUserViewController
+            let userCell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: userCell)
+            destination.user = fetchedResultsController?.object(at: indexPath!)
+        }
+    }
 
 }
 

@@ -23,11 +23,16 @@
 		803CF2E31F789A2D00EE2164 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803CF2E21F789A2D00EE2164 /* User.swift */; };
 		80590FDF1F8CD97700B1F9FB /* AddressFromMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80590FDE1F8CD97700B1F9FB /* AddressFromMapDelegate.swift */; };
 		806A7B1C1F8B2976007BE41E /* AddressFromMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A7B1B1F8B2976007BE41E /* AddressFromMapViewController.swift */; };
+		808190EA1FA16F6F00807722 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808190E91FA16F6F00807722 /* AlbumTableViewCell.swift */; };
+		808190EC1FA1D90D00807722 /* PhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808190EB1FA1D90D00807722 /* PhotoAlbumCollectionViewCell.swift */; };
 		809133B41F7FDA9E00FAE0D0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B31F7FDA9E00FAE0D0 /* Address.swift */; };
 		809133B61F7FDBB500FAE0D0 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B51F7FDBB500FAE0D0 /* Geo.swift */; };
 		809133B81F7FDBFA00FAE0D0 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133B71F7FDBFA00FAE0D0 /* Company.swift */; };
 		809133BB1F7FE87C00FAE0D0 /* ServiceJPHModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */; };
+		80B643A01F9A036A00CE71BF /* PhotoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B6439F1F9A036A00CE71BF /* PhotoUserViewController.swift */; };
 		80E1C83D1F8139CB0079F21A /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */; };
+		80F501F01FA09820001369BF /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F501EF1FA09820001369BF /* Album.swift */; };
+		80F501F21FA098A6001369BF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F501F11FA098A6001369BF /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,11 +54,16 @@
 		803CF2E21F789A2D00EE2164 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80590FDE1F8CD97700B1F9FB /* AddressFromMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFromMapDelegate.swift; sourceTree = "<group>"; };
 		806A7B1B1F8B2976007BE41E /* AddressFromMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFromMapViewController.swift; sourceTree = "<group>"; };
+		808190E91FA16F6F00807722 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		808190EB1FA1D90D00807722 /* PhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		809133B31F7FDA9E00FAE0D0 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		809133B51F7FDBB500FAE0D0 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
 		809133B71F7FDBFA00FAE0D0 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		809133BA1F7FE87C00FAE0D0 /* ServiceJPHModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceJPHModel.swift; sourceTree = "<group>"; };
+		80B6439F1F9A036A00CE71BF /* PhotoUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUserViewController.swift; sourceTree = "<group>"; };
 		80E1C83C1F8139CB0079F21A /* AddUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
+		80F501EF1FA09820001369BF /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		80F501F11FA098A6001369BF /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,11 @@
 				800326E11F864E240002CFAE /* CustomActivityIndicator.swift */,
 				806A7B1B1F8B2976007BE41E /* AddressFromMapViewController.swift */,
 				80590FDE1F8CD97700B1F9FB /* AddressFromMapDelegate.swift */,
+				80B6439F1F9A036A00CE71BF /* PhotoUserViewController.swift */,
+				80F501EF1FA09820001369BF /* Album.swift */,
+				80F501F11FA098A6001369BF /* Photo.swift */,
+				808190E91FA16F6F00807722 /* AlbumTableViewCell.swift */,
+				808190EB1FA1D90D00807722 /* PhotoAlbumCollectionViewCell.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -184,11 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F501F21FA098A6001369BF /* Photo.swift in Sources */,
 				80E1C83D1F8139CB0079F21A /* AddUserTableViewController.swift in Sources */,
 				803227B81F84A92600BA6D99 /* RequiredTextField.swift in Sources */,
+				808190EA1FA16F6F00807722 /* AlbumTableViewCell.swift in Sources */,
 				803227B41F84A61B00BA6D99 /* URLTextField.swift in Sources */,
 				803CF2E31F789A2D00EE2164 /* User.swift in Sources */,
 				80590FDF1F8CD97700B1F9FB /* AddressFromMapDelegate.swift in Sources */,
+				808190EC1FA1D90D00807722 /* PhotoAlbumCollectionViewCell.swift in Sources */,
 				803227B21F84A24100BA6D99 /* EmailTextField.swift in Sources */,
 				803CF2CF1F78957B00EE2164 /* Social.xcdatamodeld in Sources */,
 				809133BB1F7FE87C00FAE0D0 /* ServiceJPHModel.swift in Sources */,
@@ -201,7 +219,9 @@
 				800326E21F864E240002CFAE /* CustomActivityIndicator.swift in Sources */,
 				800326E01F85AA1C0002CFAE /* Validable.swift in Sources */,
 				809133B61F7FDBB500FAE0D0 /* Geo.swift in Sources */,
+				80B643A01F9A036A00CE71BF /* PhotoUserViewController.swift in Sources */,
 				806A7B1C1F8B2976007BE41E /* AddressFromMapViewController.swift in Sources */,
+				80F501F01FA09820001369BF /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
