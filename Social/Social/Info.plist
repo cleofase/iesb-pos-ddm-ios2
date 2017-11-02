@@ -47,5 +47,10 @@
 	<string>Para permitir a seleção da sua foto de perfil</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Para permitir a seleção da sua foto de perfil</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

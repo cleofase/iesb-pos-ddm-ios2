@@ -26,34 +26,12 @@ class Photo: NSManagedObject {
         do {
             let album = try Album.find(matching: photoInfo.albumId, in: context)
             assert(album != nil, "Album da foto, não encontrado.")
-            let session = URLSession(configuration: .default)
-
             let photo = Photo(context: context)
             photo.identifier = Int32(photoInfo.id)
             photo.title = photoInfo.title
+            photo.imageUrl = photoInfo.url
+            photo.thumbnailUrl = photoInfo.thumbnailUrl
             photo.album = album
-            
-            if let imageURL = URL(string: photoInfo.url) {
-                let task = session.dataTask(with: imageURL) {[unowned photo] (data: Data?, response: URLResponse?, error: Error?) in
-                    if let imageData = data {
-                        DispatchQueue.main.async {
-                            photo.image = imageData
-                        }
-                    }
-                }
-                task.resume()
-            }
-
-            if let thumbnailURL = URL(string: photoInfo.thumbnailUrl) {
-                let task = session.dataTask(with: thumbnailURL) {[unowned photo] (data: Data?, response: URLResponse?, error: Error?) in
-                    if let thumbnailData = data {
-                        DispatchQueue.main.async {
-                            photo.thumbnail = thumbnailData
-                        }
-                    }
-                }
-                task.resume()
-            }
             return photo
         } catch {
             throw error

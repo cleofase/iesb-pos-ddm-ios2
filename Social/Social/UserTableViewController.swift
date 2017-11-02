@@ -10,71 +10,66 @@ import UIKit
 import CoreData
 
 class UserTableViewController: UITableViewController {
-    var container: NSPersistentContainer? = AppDelegate.persistentContainer
-
-    fileprivate let activityIndicator = CustomActivityIndicator()
+    fileprivate var container: NSPersistentContainer? = AppDelegate.persistentContainer
     fileprivate var fetchedResultsController: NSFetchedResultsController<User>?
     fileprivate var jsonDataUsers = Data()
     
+    fileprivate let activityIndicator = CustomActivityIndicator()
     private func getUsersFromService() {
-        let getUsersURI = "https://jsonplaceholder.typicode.com/users"
-        let urlSessionConfiguration = URLSessionConfiguration.default
-        urlSessionConfiguration.allowsCellularAccess = true
-        urlSessionConfiguration.networkServiceType = .default
-        urlSessionConfiguration.requestCachePolicy = .returnCacheDataElseLoad
-        urlSessionConfiguration.isDiscretionary = true
-        urlSessionConfiguration.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 4096, diskPath: NSTemporaryDirectory())
-        
         let operationQueue = OperationQueue()
         operationQueue.qualityOfService = .userInteractive
         operationQueue.maxConcurrentOperationCount = 5
         operationQueue.underlyingQueue = DispatchQueue.global(qos: .userInteractive)
+
+        var request = URLRequest(url: RESTDefinitions.uriUsers())
+        request.timeoutInterval = 10
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        let urlSession = URLSession(configuration: urlSessionConfiguration, delegate: self, delegateQueue: operationQueue)
+        let urlSession = URLSession(configuration: RESTDefinitions.urlSessionConfiguration, delegate: self, delegateQueue: operationQueue)
+        let dataTask = urlSession.dataTask(with: request)
         
-        if let urlGetUsersURI = URL(string: getUsersURI) {
-            activityIndicator.show(at: UIApplication.shared.keyWindow!)
-            var request = URLRequest(url: urlGetUsersURI)
-            request.timeoutInterval = 10
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
-            
-            let dataTask = urlSession.dataTask(with: request)
-            jsonDataUsers.removeAll()
-            dataTask.resume()
-        }
+        jsonDataUsers.removeAll()
+        
+        activityIndicator.show(at: UIApplication.shared.keyWindow!, with: .fullView)
+        dataTask.resume()
     }
     
     private func updateUI() {
-        if let context = container?.viewContext {
-            let request: NSFetchRequest<User> = User.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
-            
-            fetchedResultsController = NSFetchedResultsController<User>(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchedResultsController?.delegate = self
-            try? fetchedResultsController?.performFetch()
-            tableView.reloadData()
+        DispatchQueue.main.async {[weak self] in
+            if let context = self?.container?.viewContext {
+                let request: NSFetchRequest<User> = User.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
+                
+                self?.fetchedResultsController = NSFetchedResultsController<User>(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                self?.fetchedResultsController?.delegate = self
+                try? self?.fetchedResultsController?.performFetch()
+                self?.tableView.reloadData()
+                self?.activityIndicator.hide()
+            }
         }
     }
     
     
-    fileprivate func updateDatabase(with users: [JPHUser]) {
+    fileprivate func updateDatabase(with users: [JPHUser], _ completionHandler: @escaping () -> Void) {
         container?.performBackgroundTask {context in
             for userInfo in users {
                 _ = try? User.findOrCreate(matching: userInfo, in: context)
             }
             try? context.save()
+            completionHandler()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if Reachability.isInternetAvailable() {
-            getUsersFromService()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateUI()
+        if Reachability.isInternetAvailable() {
+            getUsersFromService()
+        } else {
+            updateUI()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,7 +107,7 @@ class UserTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoUserSegue" {
-            let destination = segue.destination as! PhotoUserViewController
+            let destination = segue.destination as! DetailUserViewController
             let userCell = sender as! UITableViewCell
             let indexPath = tableView.indexPath(for: userCell)
             destination.user = fetchedResultsController?.object(at: indexPath!)
@@ -132,10 +127,7 @@ extension UserTableViewController: URLSessionDataDelegate {
             do {
                 let jphUsers = try decoder.decode([JPHUser].self, from: jsonDataUsers)
                 DispatchQueue.main.async {[unowned self] in
-                    self.tableView.reloadData()
-                    self.updateDatabase(with: jphUsers)
-                    self.updateUI()
-                    self.activityIndicator.hide()
+                    self.updateDatabase(with: jphUsers, self.updateUI)
                 }
             } catch {
                 debugPrint(error)

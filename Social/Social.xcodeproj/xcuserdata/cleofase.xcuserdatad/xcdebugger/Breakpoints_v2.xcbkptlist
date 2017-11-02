@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Social/UserTableViewController.swift"
-            timestampString = "530710950.99696"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "getUsersFromService()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Social/UserDAO.swift"
             timestampString = "528250648.53512"
             startingColumnNumber = "9223372036854775807"
@@ -54,13 +38,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddUserTableViewController.swift"
-            timestampString = "530103647.827107"
+            timestampString = "531339444.602725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "textFieldShouldReturn(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -70,28 +54,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddUserTableViewController.swift"
-            timestampString = "530103647.828047"
+            timestampString = "531339444.602789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Social/CustomActivityIndicator.swift"
-            timestampString = "529238044.046707"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "show(at:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "addUserInService(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,11 +70,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/CustomActivityIndicator.swift"
-            timestampString = "529238044.046824"
+            timestampString = "531344248.395125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "show(at:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Social/CustomActivityIndicator.swift"
+            timestampString = "531344248.395186"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "hide()"
             landmarkType = "7">
          </BreakpointContent>
@@ -118,7 +102,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddressFromMapViewController.swift"
-            timestampString = "529680853.19247"
+            timestampString = "530931282.78182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -134,13 +118,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddUserTableViewController.swift"
-            timestampString = "530103647.828858"
+            timestampString = "531339444.60334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "addressFromMap(didUpdateAddressFromMap:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -150,13 +134,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddUserTableViewController.swift"
-            timestampString = "530103647.829443"
+            timestampString = "531339444.603389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "addressFromMap(didUpdateAddressFromMap:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -166,13 +150,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddressFromMapViewController.swift"
-            timestampString = "529680853.192908"
+            timestampString = "530931282.782332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "addressMapView"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -182,13 +166,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddressFromMapViewController.swift"
-            timestampString = "529680853.193246"
+            timestampString = "530931282.782657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -198,13 +182,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddressFromMapViewController.swift"
-            timestampString = "529680853.193598"
+            timestampString = "530931282.782921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -214,13 +198,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Social/AddressFromMapViewController.swift"
-            timestampString = "529680853.193879"
+            timestampString = "530931282.783178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Social/AlbumTableViewCell.swift"
+            timestampString = "531339444.603502"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Social/PhotoAlbumCollectionViewCell.swift"
+            timestampString = "531344248.395325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Social/PhotoAlbumCollectionViewCell.swift"
+            timestampString = "531344248.395642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Social/PhotoAlbumCollectionViewCell.swift"
+            timestampString = "531344248.395868"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Social.PhotoAlbumCollectionViewCell.(updateUI in _F20CE4ABEF76BF6AE9830691441B537A)() -&gt; ()"
+                  moduleName = "Social"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cleofase/Documents/GitHub/iesb-pos-ddm-ios2/Social/Social/PhotoAlbumCollectionViewCell.swift"
+                  timestampString = "530884526.391768"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "761">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Social.PhotoAlbumCollectionViewCell.(updateUI in _F20CE4ABEF76BF6AE9830691441B537A)() -&gt; ()"
+                  moduleName = "Social"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cleofase/Documents/GitHub/iesb-pos-ddm-ios2/Social/Social/PhotoAlbumCollectionViewCell.swift"
+                  timestampString = "530884526.393162"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "866">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

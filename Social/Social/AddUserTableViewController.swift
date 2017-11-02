@@ -95,25 +95,22 @@ class AddUserTableViewController: UITableViewController {
             debugPrint(error)
         }
         
-        let userURI = "https://jsonplaceholder.typicode.com/users"
-        if let urlUserURI = URL(string: userURI) {
-            var request = URLRequest(url: urlUserURI)
-            activityIndicator.show(at: self.view)
-            request.httpMethod = "POST"
-            request.timeoutInterval = 10
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonDataUser
-            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
-                    // Atualizar id do User no CoreData
-                }
-                DispatchQueue.main.async {
-                    self.activityIndicator.hide()
-                    self.navigationController?.dismiss(animated: true)
-                }
+        var request = URLRequest(url: RESTDefinitions.uriUsers())
+        request.httpMethod = "POST"
+        request.timeoutInterval = 10
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonDataUser
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
+                // Atualizar id do User no CoreData
             }
-            dataTask.resume()
+            DispatchQueue.main.async {
+                self.activityIndicator.hide()
+                self.navigationController?.dismiss(animated: true)
+            }
         }
+        activityIndicator.show(at: self.view, with: .fullView)
+        dataTask.resume()
     }
     
     override func viewDidLoad() {
