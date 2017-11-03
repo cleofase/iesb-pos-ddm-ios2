@@ -680,7 +680,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSH-SQ-0h3">
-                                <rect key="frame" x="10" y="74" width="355" height="100"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="100"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImageProfileIcon-80" translatesAutoresizingMaskIntoConstraints="NO" id="J52-rE-inK">
                                         <rect key="frame" x="10" y="10" width="80" height="80"/>
@@ -691,7 +691,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPz-5b-dik">
-                                        <rect key="frame" x="128" y="45" width="217" height="25"/>
+                                        <rect key="frame" x="128" y="45" width="237" height="25"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="dUD-MG-gh4"/>
@@ -715,7 +715,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcU-IQ-Fxe">
-                                        <rect key="frame" x="128" y="10" width="217" height="25"/>
+                                        <rect key="frame" x="128" y="10" width="237" height="25"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="LLQ-bv-3bu"/>
@@ -745,9 +745,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JC3-7i-gci" firstAttribute="trailing" secondItem="zSH-SQ-0h3" secondAttribute="trailing" constant="10" id="AUD-qS-Yj2"/>
+                            <constraint firstItem="zSH-SQ-0h3" firstAttribute="trailing" secondItem="JC3-7i-gci" secondAttribute="trailing" id="AUD-qS-Yj2"/>
                             <constraint firstItem="c1n-mB-3DB" firstAttribute="leading" secondItem="JC3-7i-gci" secondAttribute="leading" constant="10" id="CEn-lG-PoG"/>
-                            <constraint firstItem="zSH-SQ-0h3" firstAttribute="leading" secondItem="JC3-7i-gci" secondAttribute="leading" constant="10" id="RVN-37-5c7"/>
+                            <constraint firstItem="zSH-SQ-0h3" firstAttribute="leading" secondItem="JC3-7i-gci" secondAttribute="leading" id="RVN-37-5c7"/>
                             <constraint firstItem="JC3-7i-gci" firstAttribute="trailing" secondItem="c1n-mB-3DB" secondAttribute="trailing" constant="10" id="UeJ-tI-LXF"/>
                             <constraint firstItem="zSH-SQ-0h3" firstAttribute="top" secondItem="JC3-7i-gci" secondAttribute="top" constant="10" id="WzH-WB-JHk"/>
                             <constraint firstItem="JC3-7i-gci" firstAttribute="bottom" secondItem="c1n-mB-3DB" secondAttribute="bottom" constant="10" id="bd1-BT-MOU"/>

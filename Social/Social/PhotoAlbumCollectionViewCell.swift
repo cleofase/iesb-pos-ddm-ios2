@@ -23,7 +23,12 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     private var dataTask: URLSessionDataTask?
 
     private let activityIndicator = CustomActivityIndicator()
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView! {
+        didSet {
+            photoImageView.layer.cornerRadius = 10
+            photoImageView.clipsToBounds = true
+        }
+    }
     
     private func updateUI() {
         if let dataThumbnail = photo?.thumbnail, let imagePhoto = UIImage(data: dataThumbnail) {

@@ -22,6 +22,9 @@ class DetailUserViewController: UIViewController {
         didSet {
             let changeImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(changeUserImage(_:)))
             imageUserImageView.addGestureRecognizer(changeImageTapGesture)
+            
+            imageUserImageView.layer.cornerRadius = 10
+            imageUserImageView.clipsToBounds = true
         }
     }
     @IBOutlet weak var emailIconImageView: UIImageView!
@@ -32,6 +35,9 @@ class DetailUserViewController: UIViewController {
         didSet {
             albumUserTableView.dataSource = self
             albumUserTableView.estimatedRowHeight = albumUserTableView.rowHeight
+            
+            albumUserTableView.layer.cornerRadius = 10
+            albumUserTableView.clipsToBounds = true
         }
     }
     
@@ -59,6 +65,8 @@ class DetailUserViewController: UIViewController {
     
     @objc func changeUserImage(_ sender: UITapGestureRecognizer) {
         let picker = UIImagePickerController()
+        sender.isEnabled = false
+        activityIndicator.show(at: imageUserImageView, with: .onlyIcon)
         picker.delegate = self
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
@@ -127,6 +135,8 @@ extension DetailUserViewController: UIImagePickerControllerDelegate, UINavigatio
 
         }
         picker.dismiss(animated: true, completion: nil)
+        imageUserImageView.gestureRecognizers!.filter({(gesture) -> Bool in return gesture.isKind(of: UITapGestureRecognizer.self)}).forEach({(gesture) in gesture.isEnabled = true})
+        activityIndicator.hide()
     }
 }
 

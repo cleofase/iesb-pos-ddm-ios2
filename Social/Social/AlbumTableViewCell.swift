@@ -33,6 +33,7 @@ class AlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var albumCollectionView: UICollectionView! {
         didSet {
             albumCollectionView.dataSource = self
+            albumCollectionView.delegate = self
         }
     }
     
@@ -158,5 +159,11 @@ extension AlbumTableViewCell: URLSessionDataDelegate {
         } else {
             debugPrint("Erro baixando json: \(error!)")
         }
+    }
+}
+
+extension AlbumTableViewCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 80)
     }
 }
